@@ -15,7 +15,13 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="relative min-h-screen overflow-x-hidden pt-20 pb-28">
+      <main
+        className="relative min-h-screen overflow-x-hidden"
+        style={{
+          paddingTop: "calc(env(safe-area-inset-top) + 5rem)",
+          paddingBottom: "calc(env(safe-area-inset-bottom) + 5rem)",
+        }}
+      >
         {/* 粒子背景 */}
         <ParticleBackground />
         

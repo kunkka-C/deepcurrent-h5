@@ -13,7 +13,7 @@ const navItems = [
 type SectionHref = (typeof navItems)[number]["href"];
 
 const glassClassName =
-  "border border-white/10 bg-[rgba(15,39,68,0.8)] backdrop-blur-xl";
+  "border border-[rgba(255,255,255,0.1)] bg-[rgba(15,39,68,0.8)] backdrop-blur-xl";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<SectionHref>("#hero");
@@ -101,7 +101,7 @@ export default function Navbar() {
       >
         <div
           className="mx-auto w-full max-w-md px-4"
-          style={{ paddingTop: "max(env(safe-area-inset-top), 0.75rem)" }}
+          style={{ paddingTop: "calc(env(safe-area-inset-top) + 0.5rem)" }}
         >
           <motion.button
             type="button"
@@ -124,9 +124,11 @@ export default function Navbar() {
       >
         <div
           className="mx-auto w-full max-w-md px-4"
-          style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
+          style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          <div className={`grid grid-cols-3 gap-1 rounded-2xl p-1.5 ${glassClassName}`}>
+          <div
+            className={`grid h-16 grid-cols-3 gap-1 rounded-2xl p-1 ${glassClassName}`}
+          >
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.href;
@@ -137,7 +139,7 @@ export default function Navbar() {
                   type="button"
                   onClick={() => scrollToSection(item.href)}
                   whileTap={{ scale: 0.97 }}
-                  className="relative flex h-14 flex-col items-center justify-center gap-1 overflow-hidden rounded-xl text-xs font-medium"
+                  className="relative flex h-full flex-col items-center justify-center gap-1 overflow-hidden rounded-xl text-xs font-medium"
                 >
                   {isActive ? (
                     <motion.span
