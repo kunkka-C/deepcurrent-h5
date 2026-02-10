@@ -1,41 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  /* 深澜 DeepCurrent 色彩系统 */
-  --background: 222 47% 11%;        /* #0A1628 */
-  --background-secondary: 210 50% 16%; /* #0F2744 */
-  --foreground: 0 0% 100%;          /* 白色 */
-  --primary: 193 100% 50%;          /* #00D4FF 青色 */
-  --secondary: 262 83% 58%;         /* #7C3AED 紫色 */
-  --accent: 330 81% 60%;            /* #EC4899 粉紫 */
-  --text-primary: 0 0% 100%;        /* 白色 */
-  --text-secondary: 0 0% 100% / 0.8; /* 80%白 */
-  --text-muted: 0 0% 100% / 0.6;    /* 60%白 */
-  --border: 0 0% 100% / 0.1;        /* 10%白 */
-  --border-accent: 193 100% 50% / 0.3; /* 青色30% */
+  /* DeepCurrent dark theme (mobile H5) */
+  color-scheme: dark;
+  --background: #0A1628;
+  --background-secondary: #0F2744;
+  --foreground: #ffffff;
+  --primary: #00D4FF;
+  --secondary: #7C3AED;
+  --accent: #EC4899;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(0, 212, 255, 0.3);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
 
-/* 全局样式 */
+/* Global styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: linear-gradient(180deg, #0A1628 0%, #0F2744 50%, #0A1628 100%);
-  background-attachment: fixed;
-  color: #ffffff;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  margin: 0;
   min-height: 100vh;
+  min-width: 320px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: linear-gradient(180deg, #0A1628 0%, #0F2744 50%, #0A1628 100%);
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-x: hidden;
 }
 
