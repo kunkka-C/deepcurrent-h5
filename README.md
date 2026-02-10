@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Local production preview (static export)
+
+This project uses static export (`output: 'export'`) and writes output to `dist/`.
+
+To preview the production build locally:
+
+```bash
+npm run build
+npm run start
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
