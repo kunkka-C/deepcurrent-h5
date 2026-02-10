@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "serve dist",
     "lint": "eslint"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "serve": "^14.2.5",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
