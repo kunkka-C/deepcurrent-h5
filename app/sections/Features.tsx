@@ -1,127 +1,139 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Newspaper, Search, Eye, BookOpen, Bot, Check } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
-const features = [
+type Feature = {
+  emoji: string;
+  title: string;
+  description: string;
+  points: string[];
+  borderGradient: string;
+  iconGradient: string;
+};
+
+const features: Feature[] = [
   {
-    icon: Newspaper,
+    emoji: "📰",
     title: "AI日报",
-    description: "智能聚合全网科技资讯，AI生成核心摘要，重要性智能排序，5分钟掌握每日精华",
-    points: ["智能聚合数百个科技源", "AI生成3句话核心摘要", "重要性智能排序", "故事线关联展示"],
-    color: "#00D4FF",
+    description: "智能聚合全网科技资讯，AI生成核心摘要，重要性智能排序。",
+    points: ["全网科技资讯聚合", "AI提炼核心摘要", "按重要性智能排序"],
+    borderGradient: "linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(124, 58, 237, 0.8))",
+    iconGradient: "linear-gradient(135deg, #00D4FF 0%, #7C3AED 100%)",
   },
   {
-    icon: Search,
+    emoji: "🔎",
     title: "深度搜索",
-    description: "科技领域的Perplexity式AI搜索，自然语言提问，多源整合答案，代码示例支持",
-    points: ["自然语言提问", "多源信息整合", "研究模式自动拆解", "代码示例支持"],
-    color: "#7C3AED",
+    description: "科技领域的Perplexity式AI搜索，理解技术问题给出专业答案。",
+    points: ["理解复杂技术问题", "多源信息交叉验证", "输出专业结构化答案"],
+    borderGradient: "linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(236, 72, 153, 0.85))",
+    iconGradient: "linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)",
   },
   {
-    icon: Eye,
+    emoji: "👁️",
     title: "智能监控",
-    description: "持续追踪公司、技术、话题，重要动态即时推送，竞品追踪与情绪分析",
-    points: ["多维度监控对象", "重要程度智能分级", "跨平台信息追踪", "自动生成分析报告"],
-    color: "#EC4899",
+    description: "持续追踪公司/技术/话题动态，实时推送关键更新。",
+    points: ["多维对象持续追踪", "关键变动实时提醒", "动态趋势持续记录"],
+    borderGradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.9), rgba(0, 212, 255, 0.8))",
+    iconGradient: "linear-gradient(135deg, #EC4899 0%, #00D4FF 100%)",
   },
   {
-    icon: BookOpen,
+    emoji: "📚",
     title: "知识库",
-    description: "阅读+笔记+分享三合一，一键收藏，AI自动标注分类，构建个人科技知识库",
-    points: ["一键收藏任意内容", "AI自动提取关键信息", "智能分类与关联", "全文搜索支持"],
-    color: "#00D4FF",
+    description: "阅读+笔记+分享三合一，构建个人科技知识体系。",
+    points: ["阅读与笔记无缝衔接", "沉淀可复用知识资产", "支持团队协作分享"],
+    borderGradient: "linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(16, 185, 129, 0.8))",
+    iconGradient: "linear-gradient(135deg, #00D4FF 0%, #10B981 100%)",
   },
   {
-    icon: Bot,
+    emoji: "🤖",
     title: "AI助手",
-    description: "实时问答、术语解释、写作辅助，上下文感知，渐进式交互不打断阅读",
-    points: ["选中即问实时解答", "技术术语自动解释", "多语言实时翻译", "写作辅助生成"],
-    color: "#7C3AED",
+    description: "实时问答+术语解释+写作辅助，随叫随到的AI外脑。",
+    points: ["上下文实时问答", "技术术语即刻解释", "写作表达辅助优化"],
+    borderGradient: "linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(0, 212, 255, 0.8))",
+    iconGradient: "linear-gradient(135deg, #7C3AED 0%, #00D4FF 100%)",
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function Features() {
   return (
-    <section className="relative py-20 sm:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 标题 */}
+    <section className="relative px-4 py-16 sm:px-6 sm:py-20">
+      <div className="mx-auto w-full max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center sm:mb-12"
         >
-          <span className="inline-block px-4 py-1 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/30 text-[#00D4FF] text-xs sm:text-sm font-medium mb-4">
-            核心功能
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-[28px] font-bold leading-tight text-white">
             五大核心功能
           </h2>
-          <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
-            全方位覆盖科技信息获取与管理的每个环节
-          </p>
         </motion.div>
 
-        {/* 功能列表 */}
-        <div className="space-y-8">
-          {features.map((feature, index) => (
-            <motion.div
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="flex flex-col gap-5 sm:gap-6"
+        >
+          {features.map((feature) => (
+            <motion.article
               key={feature.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.6,
-                
-              }}
+              variants={cardVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+              className="rounded-[28px] p-[1.5px]"
+              style={{ background: feature.borderGradient }}
             >
-              <div className="glass-card rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:border-[#00D4FF]/20">
-                <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
-                  {/* 图标区域 */}
-                  <div className="flex-shrink-0">
-                    <motion.div
-                      whileHover={{ scale: 1.05, rotate: 5 }}
-                      className="w-24 h-24 rounded-3xl flex items-center justify-center shadow-lg"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${feature.color}20, ${feature.color}40)`,
-                        border: `1px solid ${feature.color}40`
-                      }}
-                    >
-                      <feature.icon className="w-12 h-12" style={{ color: feature.color }} />
-                    </motion.div>
+              <div className="rounded-[26px] bg-[#0F2744]/80 p-6 backdrop-blur-md transition-transform duration-300 hover:-translate-y-0.5 sm:p-7">
+                <div className="mb-5 flex items-start gap-4">
+                  <div
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+                    style={{ background: feature.iconGradient }}
+                    aria-hidden="true"
+                  >
+                    <span className="text-[22px] leading-none">{feature.emoji}</span>
                   </div>
-
-                  {/* 内容区域 */}
-                  <div className="flex-1 text-center lg:text-left">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold leading-tight text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-white/70 text-lg mb-6 leading-relaxed">
+                    <p className="mt-2 text-sm leading-relaxed text-white/75">
                       {feature.description}
                     </p>
-                    
-                    {/* 功能点 */}
-                    <div className="grid grid-cols-2 gap-3">
-                      {feature.points.map((point) => (
-                        <div key={point} className="flex items-center gap-2">
-                          <div 
-                            className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                            style={{ background: `${feature.color}20` }}
-                          >
-                            <Check className="w-3 h-3" style={{ color: feature.color }} />
-                          </div>
-                          <span className="text-white/80 text-sm">{point}</span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
                 </div>
+
+                <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-white/85 marker:text-[#00D4FF]">
+                  {feature.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
