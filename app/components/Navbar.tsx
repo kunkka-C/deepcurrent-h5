@@ -6,10 +6,11 @@ import { Menu, X, Zap } from "lucide-react";
 
 const navLinks = [
   { name: "首页", href: "#hero" },
-  { name: "功能", href: "#features" },
+  { name: "痛点", href: "#pain-points" },
   { name: "价值", href: "#values" },
+  { name: "功能", href: "#features" },
   { name: "场景", href: "#scenes" },
-  { name: "FAQ", href: "#faq" },
+  { name: "开始", href: "#cta" },
 ];
 
 export default function Navbar() {

@@ -75,15 +75,9 @@ export default function Hero() {
   );
 
   const scrollToNext = useCallback(() => {
-    const statsSection = document.getElementById("stats");
-    if (statsSection) {
-      statsSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      // 如果没有 stats 区域，滚动到 pain-points
-      const painPointsSection = document.querySelector("section:not(#hero)");
-      if (painPointsSection) {
-        painPointsSection.scrollIntoView({ behavior: "smooth" });
-      }
+    const painPointsSection = document.getElementById("pain-points");
+    if (painPointsSection) {
+      painPointsSection.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
 

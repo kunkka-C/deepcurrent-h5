@@ -50,7 +50,7 @@ const itemVariants: Variants = {
 
 export default function PainPoints() {
   return (
-    <section id="pain-points" className="relative py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section id="pain-points" className="relative scroll-mt-24 py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* 区域标题 */}
         <motion.div
