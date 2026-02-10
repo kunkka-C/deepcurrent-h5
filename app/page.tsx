@@ -13,16 +13,15 @@ import Footer from "./sections/Footer";
 export default function Home() {
   return (
     <>
-      {/* 导航栏 - 放在 main 之外 */}
       <Navbar />
-      
-      <main className="relative min-h-screen overflow-x-hidden">
+
+      <main className="relative min-h-screen overflow-x-hidden pt-20 pb-28">
         {/* 粒子背景 */}
         <ParticleBackground />
         
         {/* 页面内容 */}
         <div className="relative z-10">
-          <section id="hero">
+          <section id="hero" className="scroll-mt-24">
             <Hero />
           </section>
           
@@ -30,23 +29,23 @@ export default function Home() {
           
           <PainPoints />
           
-          <section id="values">
+          <section id="values" className="scroll-mt-24">
             <ValueProps />
           </section>
           
-          <section id="features">
+          <section id="features" className="scroll-mt-24">
             <Features />
           </section>
           
-          <section id="scenes">
+          <section id="scenes" className="scroll-mt-24">
             <UserScenes />
           </section>
           
-          <section id="faq">
+          <section id="faq" className="scroll-mt-24">
             <FAQ />
           </section>
           
-          <section id="cta">
+          <section id="cta" className="scroll-mt-24">
             <CTA />
           </section>
           
