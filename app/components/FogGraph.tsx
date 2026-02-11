@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { ForceGraphMethods } from "react-force-graph-2d";
 import { Compass, RotateCcw, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { mockGraph } from "@/app/data/mockGraph";
@@ -38,7 +39,7 @@ export default function FogGraph({
 }: FogGraphProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const graphRef = useRef<any>(null);
+  const graphRef = useRef<ForceGraphMethods | undefined>(undefined);
   const didFitRef = useRef(false);
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
@@ -250,8 +251,7 @@ export default function FogGraph({
     ctx.fillStyle = baseGradient;
     ctx.fillRect(0, 0, viewport.width, viewport.height);
 
-    const graphSnapshot = graph.graphData?.();
-    const visibleNodes: GraphNode[] = graphSnapshot?.nodes ?? [];
+    const visibleNodes = visibleGraph.nodes;
     if (visibleNodes.length === 0) {
       return;
     }
@@ -320,7 +320,7 @@ export default function FogGraph({
     }
 
     ctx.restore();
-  }, [discoveredAt, focusNodeId, viewport, waveOriginNodeId, waveStartedAt]);
+  }, [discoveredAt, focusNodeId, viewport, visibleGraph.nodes, waveOriginNodeId, waveStartedAt]);
 
   useEffect(() => {
     explorationStore.open();
